@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    SPRINT {{ sprint.id }}
+
+    <form action="{{ path('close_sprint', {'id': sprint.id}) }}" method="post">
+        <input type="submit" value="Close"/>
+    </form>
+{% endblock %}

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://symfony.com/schema/dic/services" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="repository.sprint" factory-service="doctrine.orm.entity_manager" factory-method="getRepository" class="AppBundle\Repository\SprintRepository">
+            <argument>AppBundle\Entity\Sprint</argument>
+        </service>
+        <service id="service.sprint" class="AppBundle\Services\SprintService">
+            <call method="setSprintRepository">
+                <argument type="service" id="repository.sprint"/>
+            </call>
+        </service>
+    </services>
+</container>
